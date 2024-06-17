@@ -15,122 +15,69 @@
 # alias bupc='brew bundle check || brew bundle --all --cleanup; brew bundle cleanup -f; brew cleanup --prune=all; brew autoremove; brew upgrade'        # Upgrades and cleans up all regular outdated casks and libs (non-greedy)
 
 # TODO: Need to find brew/cask for:
-#   Tinkertool
+# Tinkertool
 
 # set global preferences for all 'brew install' commands
 cask_args appdir: '/Applications', no_quarantine: true
 
-# java_present = system('/usr/libexec/java_home --failfast')
-is_arm = Hardware::CPU.arm?
-
-# Use my login id to selectively enable certain lines/blocks (kept for reference)
-# is_vijay = `whoami`.chomp == 'vijay'
-
-# tap 'buo/cask-upgrade'
 tap 'romkatv/powerlevel10k'
-# tap 'trailofbits/homebrew-brew-verify'
 
 brew 'bash'
 brew 'bat'
 brew 'btop'
 brew 'curl'
 brew 'diff-so-fancy'
-brew 'direnv'   # Note: If you get an error (for eg after upgrading direnv or if moving to a different ARM machine), you will need to delete '${HOME}/.zsh-evalcache' folder
-# brew 'dive'   # docker layers inspection on steroids
-# brew 'docker-diff'
-# brew 'docker-slim'  # TODO: investigate if the http-probe is a deal-breaker
-brew 'eza'
-# brew 'fzy'
-# brew 'git-crypt'
+brew 'direnv'
+brew 'fzy'
 brew 'git-extras'
 brew 'git-gui'
 brew 'git-tools'
 brew 'git'
-# brew 'gradle'
-# brew 'gradle-completion'
-# brew 'hadolint'     # lint Dockerfiles (similar to shellcheck for shell scripts)
-brew 'jq'
-# brew 'kubernetes-cli', link: true   # Note: Had to do this: rm /usr/local/bin/kubectl && brew link --overwrite kubernetes-cli
-# brew 'kubernetes-helm'
-brew 'less'
-# brew 'libressl', link: true
-# brew 'localstack'
-# brew 'make'
+brew 'gradle'
+brew 'jhipster' # Note: downloads node latest version as depenency
 brew 'mise'
-brew 'moreutils'
-brew 'ncdu'
-# brew 'pkgdiff'
+brew 'node'
 brew 'powerlevel10k'
 brew 'prettyping'
-# brew 'reattach-to-user-namespace' # Needed if using tmux (to be able to access the macos clipboard from within tmux)
-brew 'ripgrep'
-brew 'shellcheck'
-# brew 'speedtest-cli'
-brew 'syncthing'
-brew 'tldr'
-# brew 'tmux'
+brew 'sonar-scanner'
 brew 'vim'
-brew 'watch'
+brew 'watchman'
 brew 'wget'
-brew 'wifi-password'
+brew 'yarn' # Note: downloads node latest version as depenency
 brew 'zsh'
 
-# ----------------------------------------------------------------------------------------------------------
+# ---------------------------------------------------------------------------------------------------------
+# mas is to download apps from app store [regester/login to app store for mas commands to work]---------------------------------------------------------------------------------------------------------
 brew 'mas'
-mas 'iBar-Menubar icon control tool', id: 6443843900
+# mas 'iBar-Menubar icon control tool', id: 6443843900
 # mas 'Velja', id: 1607635845
 
-# ----------------------------------------------------------------------------------------------------------
-cask 'aldente'
-# cask 'alfred'
-cask 'apparency'
+# cask 'clocker'
+# cask 'flycut'
+# cask 'keepingyouawake'
+cask 'android-studio'
 cask 'appcleaner'
-cask 'arc'
-cask 'brave-browser@nightly'
-cask 'clocker'
-cask 'cloudflare-warp'
-cask 'command-x'
-# cask 'dbeaver-community'
-# cask 'dupeguru'
-cask 'firefox@nightly' #, greedy: true
+cask 'firefox'
+cask 'flutter' # Note: downloads dart latest version as depenency
 cask 'font-meslo-lg-nerd-font'
-# cask 'git-credential-manager'  # https://docs.github.com/en/get-started/getting-started-with-git/caching-your-github-credentials-in-git
-# cask 'intellij-idea-ce'
-cask 'iterm2@nightly'
-cask 'itsycal'
-# cask 'kdiff3'
-cask 'keepassxc@beta'
-cask 'keepingyouawake'
+cask 'google-chrome'
+cask 'intellij-idea-ce'
+cask 'iterm2'
 cask 'keybase'
-# cask 'keycastr'
-cask 'libreoffice'
-# cask 'licecap'
-# cask 'lulu'
-# cask 'maccy'  # replaced by raycast on June 22, 2024; to be removed after 1 month of usage
-cask 'monolingual'
-# cask 'netspot'
-# cask 'ngrok'
-cask 'notunes'
-# cask 'onyx'  # Commented out since I'm on the beta version of macos
-cask 'protonvpn'
+cask 'postman-agent'
 cask 'rancher'
-cask 'raycast'
-# cask 'rectangle'  # replaced by raycast on June 22, 2024; to be removed after 1 month of usage
-cask 'silicon' if is_arm
+cask 'rectangle'
 cask 'stats'
-# cask 'tempbox'
-cask 'the-unarchiver'
-cask 'thunderbird@daily'  # TODO: Commented out since I haven't opened TBird for the past 6 months - maybe its time to let go
-cask 'vscodium@insiders'   # TODO: Doesn't handle 'Remote Containers' and GH-based auto-syncing when comparing to VSCode
+cask 'vscodium'
+cask 'whatsapp'
 cask 'zoom'
 
-# VSCode extensions
-# Note: I don't want brew to silently install VS Code (which is what it does currently if the following lines are present but it doesn't find code!)
 is_vscode_installed = !`which code`.chomp.empty?
 if is_vscode_installed
   vscode 'brandonkirbyson.vscode-animations'
   vscode 'britesnow.vscode-toggle-quotes'
-  vscode 'codezombiech.gitignore'
+  vscode 'dart-code.dart-code'
+  vscode 'dart-code.flutter'
   vscode 'davidanson.vscode-markdownlint'
   vscode 'dbaeumer.vscode-eslint'
   vscode 'digitalbrainstem.javascript-ejs-support'
@@ -138,9 +85,12 @@ if is_vscode_installed
   vscode 'eamodio.gitlens'
   vscode 'editorconfig.editorconfig'
   vscode 'esbenp.prettier-vscode'
+  vscode 'esbenp.prettier-vscode'
   vscode 'formulahendry.code-runner'
   vscode 'genuitecllc.codetogether'
+  vscode 'golang.go'
   vscode 'ibm.output-colorizer'
+  vscode 'markosth09.color-picker'
   vscode 'mechatroner.rainbow-csv'
   vscode 'mikestead.dotenv'
   vscode 'mkhl.direnv'
@@ -170,9 +120,3 @@ if is_vscode_installed
   vscode 'xaver.clang-format'
   vscode 'yzhang.markdown-all-in-one'
 end
-
-# ----------------------------------------------------------------------------------------------------------
-# TODO: This doesn't solve the issue about performing a custom action when a specific formula/cask is (re)installed - keeping for future reference
-# at_exit do
-#   system "echo WOAH!!!!!!! && code-gist"
-# end

@@ -6,12 +6,13 @@
 # [General] Since I use 'diff-so-fancy' as the diffing tool, it's absence on your system will cause some errors. If you are able to, I would sincerely urge you to install and use it for a much better experience. If not, please replace all such occurrences back to use 'diff'
 
 # Note: Even though this will show up twice in `git config -l` - it will still be overridden based on the order of the includeIf lines below
-[includeIf "gitdir/i:~/"]             # Personal
-  path = ~/.gitconfig-oss.inc         # Personal
-[includeIf "gitdir/i:~/dev/jd/"]      # Personal
-  path = ~/.gitconfig-jd.inc          # Personal
-[includeIf "gitdir/i:~/dev/tw/"]      # Personal
-  path = ~/.gitconfig-tw.inc          # Personal
+
+[includeIf "gitdir/i:~/"]                  # Personal
+  path = ~/.gitconfig-personal.inc         # Personal
+
+[includeIf "gitdir/i:~/dev/tw/"]           # Personal
+  path = ~/.gitconfig-tw.inc               # Personal
+
 [alias]
   # find dangling commits
   dangling = fsck --no-reflog
