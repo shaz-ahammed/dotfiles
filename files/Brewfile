@@ -106,7 +106,7 @@ cask 'keybase'
 cask 'libreoffice'
 # cask 'licecap'
 # cask 'lulu'
-cask 'maccy'
+# cask 'maccy'  # replaced by raycast on June 22, 2024; to be removed after 1 month of usage
 cask 'monolingual'
 # cask 'netspot'
 # cask 'ngrok'
@@ -114,7 +114,8 @@ cask 'notunes'
 # cask 'onyx'  # Commented out since I'm on the beta version of macos
 cask 'protonvpn'
 cask 'rancher'
-cask 'rectangle'
+cask 'raycast'
+# cask 'rectangle'  # replaced by raycast on June 22, 2024; to be removed after 1 month of usage
 cask 'silicon' if is_arm
 cask 'stats'
 # cask 'tempbox'

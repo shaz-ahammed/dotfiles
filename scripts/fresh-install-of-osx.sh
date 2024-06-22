@@ -234,6 +234,7 @@ app_list=(
   'KeepingYouAwake.app'
   'Keybase.app'
   'Maccy.app'
+  'Raycast.app'
   'Rectangle.app'
   'Stats.app'
 )

@@ -100,6 +100,7 @@ app_array=(
   'com.mothersruin.Apparency'
   'com.mowglii.ItsycalApp'
   'com.piriform.ccleaner'
+  'com.raycast.macos'
   'com.runningwithcrayons.Alfred-Preferences'
   'com.sindresorhus.Velja'
   'com.titanium.OnyX'
