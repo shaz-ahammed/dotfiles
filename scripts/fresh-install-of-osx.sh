@@ -233,9 +233,9 @@ app_list=(
   'Itsycal.app'
   'KeepingYouAwake.app'
   'Keybase.app'
-  'Maccy.app'
+  # 'Maccy.app'
   'Raycast.app'
-  'Rectangle.app'
+  # 'Rectangle.app'
   'Stats.app'
 )
 for app in "${app_list[@]}"; do

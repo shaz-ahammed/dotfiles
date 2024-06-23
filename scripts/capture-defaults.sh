@@ -43,6 +43,7 @@ esac
 $git_cleanup
 mkdir -p "${TARGET_DIR}"
 
+# TODO: Trialling if I don't need Velja, Rectangle and Maccy. Need to delete after Jul 1, 2024
 app_array=(
   'ch.protonvpn.mac'
   'cn.better365.iBar'
