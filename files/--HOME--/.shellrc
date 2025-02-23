@@ -301,7 +301,8 @@ clone_repo_into() {
   ensure_dir_exists "${target_folder}"
   if ! is_git_repo "${target_folder}"; then
     local tmp_folder="$(mktemp -d)"
-    git -C "${tmp_folder}" clone --depth=250 -q "${1}" .
+    # Note: Do not use --depth while cloning since that messes up when using upstream to rebase from
+    git -C "${tmp_folder}" clone -q "${1}" .
     mv "${tmp_folder}/.git" "${target_folder}"
     git -C "${target_folder}" checkout .
     git -C "${target_folder}" submodule update --init --recursive --remote --rebase --force

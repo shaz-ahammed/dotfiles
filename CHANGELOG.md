@@ -2,6 +2,10 @@ As documented in the README's [adopting](README.md#how-to-adoptcustomize-the-scr
 
 For those who follow this repo, here's the changelog for ease of adoption:
 
+### 1.1-10
+
+* *[.shellrc]* Removed 'depth' option while cloning repos since that causes rebases from the upstream repo to get corrupted.
+
 ### 1.1-9
 
 * Moved setting up of login items into the `Brewfile` so that can be managed along with the cask block itself.
