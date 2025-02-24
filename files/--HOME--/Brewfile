@@ -62,44 +62,29 @@ return true if is_base_install
 brew 'bat'
 brew 'btop'
 brew 'git-gui'
-brew 'jq'
-brew 'moreutils'
-brew 'ncdu'
+brew 'git-tools'
+brew 'jhipster' # Note: downloads node latest version as depenency
 brew 'prettyping'
-brew 'ripgrep'
-brew 'syncthing'
-brew 'tldr'
+brew 'sonar-scanner'
 
 cask 'aldente', postinstall: "type setup_login_item &> /dev/null 2>&1 || source \"${HOME}/.aliases\"; setup_login_item 'AlDente'"
+cask 'android-studio'
 cask 'appcleaner'
-cask 'brave-browser'
-cask 'clocker', postinstall: "type setup_login_item &> /dev/null 2>&1 || source \"${HOME}/.aliases\"; setup_login_item 'Clocker'"
-cask 'firefox@nightly' #, greedy: true
+cask 'firefox'
+cask 'flutter' # Note: downloads dart latest version as depenency
+cask 'font-meslo-lg-nerd-font'
+cask 'google-chrome'
+cask 'intellij-idea-ce'
+cask 'iterm2'
 cask 'jordanbaird-ice', postinstall: "type setup_login_item &> /dev/null 2>&1 || source \"${HOME}/.aliases\"; setup_login_item 'Ice'"
-cask 'keepassxc@beta'
-cask 'keepingyouawake', postinstall: "type setup_login_item &> /dev/null 2>&1 || source \"${HOME}/.aliases\"; setup_login_item 'KeepingYouAwake'"
-cask 'keycastr'
-cask 'keyclu' if is_arm
-cask 'monolingual'
-cask 'notunes'
-cask 'ollama', restart_service: :changed
-cask 'onlyoffice'
-cask 'onyx'
-cask 'protonvpn'
+cask 'keepingyouawake'
 cask 'rancher'
 cask 'raycast', postinstall: "type setup_login_item &> /dev/null 2>&1 || source \"${HOME}/.aliases\"; setup_login_item 'Raycast'"
-cask 'silicon' if is_arm
 cask 'stats', postinstall: "type setup_login_item &> /dev/null 2>&1 || source \"${HOME}/.aliases\"; setup_login_item 'Stats'"
-cask 'the-unarchiver'
-cask 'vscodium@insiders'   # TODO: Doesn't handle 'Remote Containers' and GH-based auto-syncing when compared to VSCode
-cask 'zen-browser@twilight'
+cask 'vscodium'
+cask 'whatsapp'
 cask 'zoom'
 
-brew 'mas'
-mas 'PDFgear', id: 6469021132
-
-# VSCode extensions
-# Note: I don't want brew to silently install VS Code (which is what it does currently if the following lines are present but it doesn't find code!)
 is_vscode_installed = !`which code`.chomp.empty?
 if is_vscode_installed
   # This is failing on different machines
@@ -113,7 +98,8 @@ if is_vscode_installed
   # vscode 'vscjava.vscode-lombok'
   vscode 'brandonkirbyson.vscode-animations'
   vscode 'britesnow.vscode-toggle-quotes'
-  vscode 'codezombiech.gitignore'
+  vscode 'dart-code.dart-code'
+  vscode 'dart-code.flutter'
   vscode 'davidanson.vscode-markdownlint'
   vscode 'dbaeumer.vscode-eslint'
   vscode 'digitalbrainstem.javascript-ejs-support'
@@ -121,8 +107,11 @@ if is_vscode_installed
   vscode 'eamodio.gitlens'
   vscode 'editorconfig.editorconfig'
   vscode 'esbenp.prettier-vscode'
+  vscode 'formulahendry.code-runner'
   vscode 'genuitecllc.codetogether'
+  vscode 'golang.go'
   vscode 'ibm.output-colorizer'
+  vscode 'markosth09.color-picker'
   vscode 'mechatroner.rainbow-csv'
   vscode 'mikestead.dotenv'
   vscode 'mkhl.direnv'
@@ -148,8 +137,8 @@ end
 # Moved these brew and cask lines to clean up the noise from the above alphabetically sorted lists
 
 # ---- zen-browser development
-brew 'gnu-tar'
-brew 'mercurial'
+# brew 'gnu-tar'
+# brew 'mercurial'
 
 # ---- docker utilities
 # brew 'dive'   # docker layers inspection on steroids
@@ -176,8 +165,16 @@ brew 'mercurial'
 # brew 'speedtest-cli'
 # brew 'watch'
 # brew 'wifi-password'
+# ---------------------------------------------------------------------------------------------------------
+# mas is to download apps from app store [regester/login to app store for mas commands to work]
+# ---------------------------------------------------------------------------------------------------------
+# brew 'mas'
+
+# https://docs.github.com/en/get-started/getting-started-with-git/caching-your-github-credentials-in-git
+# cask 'git-credential-manager'
 
 # ---- casks
+# cask 'clocker'
 # cask 'cloudflare-warp'
 # cask 'dbeaver-community'
 # cask 'ghostty'
