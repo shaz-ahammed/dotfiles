@@ -141,7 +141,6 @@ __pycache__
 /.mix/rebar
 /.mix/rebar3
 /.mono/registry/
-/.mozbuild/
 /.nchsoftware
 /.nix-profile
 /.npm
@@ -160,9 +159,6 @@ __pycache__
 /.recently-used.xbel
 /.rnd
 /.RSA/
-/.rustup/settings.toml
-/.rustup/toolchains/
-/.rustup/update-hashes/
 /.rvm/
 /.sbt/
 /.scalarDiagnostics/

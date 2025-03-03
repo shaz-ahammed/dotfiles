@@ -348,6 +348,8 @@ app_array=(
   'menu.nomad.DEPNotify'
   'net.freemacsoft.AppCleaner'
   'net.sourceforge.Monolingual'
+  'net.whatsapp.WhatsApp.ServiceExtension'
+  'net.whatsapp.WhatsApp'
   'NSGlobalDomain'
   'org.cups.PrintingPrefs'
   'org.kde.KDiff3'
