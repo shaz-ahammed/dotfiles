@@ -139,7 +139,6 @@
 /.mix/rebar
 /.mix/rebar3
 /.mono/registry/
-/.mozbuild/
 /.nchsoftware
 /.nix-profile
 /.npm
@@ -158,9 +157,6 @@
 /.recently-used.xbel
 /.rnd
 /.RSA/
-/.rustup/settings.toml
-/.rustup/toolchains/
-/.rustup/update-hashes/
 /.rvm/
 /.sbt/
 /.scalarDiagnostics/
