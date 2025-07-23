@@ -139,7 +139,6 @@
 /.mix/rebar
 /.mix/rebar3
 /.mono/registry/
-/.mozbuild/
 /.nchsoftware
 /.nix-profile
 /.npm
@@ -158,9 +157,6 @@
 /.recently-used.xbel
 /.rnd
 /.RSA/
-/.rustup/settings.toml
-/.rustup/toolchains/
-/.rustup/update-hashes/
 /.rvm/
 /.sbt/
 /.scalarDiagnostics/
@@ -194,6 +190,7 @@
 /.yarn/berry/telemetry.json
 /.yarnrc
 /.yjp
+/.zcompdump*
 /.zoomus
 /.zsh_history
 /.zsh_sessions/
@@ -249,8 +246,6 @@ tmp/
 /.bashrc
 /.config/bat/config
 /.config/btop/btop.conf
-/.config/mise/config.toml
-/.config/rubocop/config.yml
 /.cshrc
 /.curlrc
 /.default-gems
