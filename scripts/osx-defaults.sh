@@ -125,7 +125,7 @@ if ask "Show remaining battery time" N; then
 fi
 
 if ask "Show remaining battery percentage" Y; then
-  defaults write com.apple.menuextra.battery ShowPercent -string "YES"
+  defaults write com.apple.menuextra.battery ShowPercent -string "NO"
 fi
 
 if ask "Show remaining battery percentage" Y; then
@@ -196,15 +196,15 @@ defaults write com.apple.systemuiserver "NSStatusItem Visible com.apple.menuextr
 defaults write com.apple.systemuiserver "NSStatusItem Visible com.apple.menuextra.bluetooth" -bool true
 defaults write com.apple.systemuiserver "NSStatusItem Visible com.apple.menuextra.volume" -bool true
 
-defaults write com.apple.menuextra.clock DateFormat -string "EEE d MMM hh:mm:ss a"
-defaults write com.apple.menuextra.clock FlashDateSeparators -bool true
-defaults write com.apple.menuextra.clock IsAnalog -bool true  # Since I am using `The Clocker` app, turning this to analog
+defaults write com.apple.menuextra.clock DateFormat -string "EEE d MMM  hh:mm a"
+defaults write com.apple.menuextra.clock FlashDateSeparators -bool false
+defaults write com.apple.menuextra.clock IsAnalog -bool false
 defaults write com.apple.menuextra.clock Show24Hour -bool false
 defaults write com.apple.menuextra.clock ShowAMPM -bool true
-defaults write com.apple.menuextra.clock ShowDate -bool false
+defaults write com.apple.menuextra.clock ShowDate -bool true
 defaults write com.apple.menuextra.clock ShowDayOfMonth -bool true
-defaults write com.apple.menuextra.clock ShowDayOfWeek -bool false
-defaults write com.apple.menuextra.clock ShowSeconds -bool true
+defaults write com.apple.menuextra.clock ShowDayOfWeek -bool true
+defaults write com.apple.menuextra.clock ShowSeconds -bool false
 
 if ask "Remove duplicates in the 'Open With' menu (also see 'lscleanup' alias)" Y; then
   /System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -domain local -domain system -domain user
@@ -690,7 +690,7 @@ if ask "Set the icon size of Dock items to 35 pixels" Y; then
 fi
 
 if ask "Move the dock to the right side of the screen" Y; then
-  defaults write com.apple.dock orientation -string "right"
+  defaults write com.apple.dock orientation -string "bottom"
 fi
 
 if ask "Minimize windows into their application's icon" Y; then
@@ -778,7 +778,7 @@ if ask "Remove the auto-hiding Dock delay" N; then
 fi
 
 if ask "Automatically hide and show the Dock" Y; then
-  defaults write com.apple.dock autohide -bool true
+  defaults write com.apple.dock autohide -bool false
 fi
 
 if ask "Automatically magnify the Dock" Y; then
