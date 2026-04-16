@@ -2,6 +2,10 @@ As documented in the README's [adopting](README.md#how-to-adoptcustomize-the-scr
 
 For those who follow this repo, here's the changelog for ease of adoption:
 
+### 3.0.12
+
+* *[.aliases]* New alias for `mkdir` that will create the directory and its parent directories if they don't exist.
+
 ### 3.0.11
 
 * *[.aliases]* `recron` will now generate the default crontab file and then register it with the system's `crontab` command.
