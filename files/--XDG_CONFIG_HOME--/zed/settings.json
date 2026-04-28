@@ -7,6 +7,7 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "cli_default_open_behavior": "new_window",
   "agent_servers": {
     "github-copilot-cli": {
       "favorite_config_option_values": {
@@ -55,7 +56,7 @@
         "model": "deepseek-coder-v2:latest"
       }
     ],
-    "play_sound_when_agent_done": true,
+    "play_sound_when_agent_done": "always",
     // "single_file_review": false,
     "model_parameters": [],
     "default_model": {
@@ -142,8 +143,8 @@
     "collapse_untracked_diff": false
   },
   "title_bar": {
+    "show_branch_status_icon": true,
     "show_menus": true,
-    "show_branch_icon": true,
     "show_onboarding_banner": true,
     "show_project_items": true,
     "show_branch_name": true,
@@ -274,17 +275,24 @@
     "**/.hg",
     "**/.jj",
     "**/.mypy_cache/",
+    "**/.mypy_cache/",
+    "**/.pytest_cache/",
     "**/.repo",
     "**/.ruby-lsp",
+    "**/.ruff_cache/",
     "**/.settings",
     "**/.svn",
+    "**/.venv/",
+    "**/__pycache__",
     "**/build",
+    "**/codeql/",
     "**/coverage",
     "**/CVS",
     "**/dist",
     "**/node_modules",
     "**/Thumbs.db",
     "**/tmp",
+    "**/uv.lock",
   ],
   "file_scan_inclusions": [
     "**/.env*",

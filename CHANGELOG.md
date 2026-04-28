@@ -2,6 +2,23 @@ As documented in the README's [adopting](README.md#how-to-adoptcustomize-the-scr
 
 For those who follow this repo, here's the changelog for ease of adoption:
 
+### 3.0.13
+
+* *[Brewfile]* Added `Dockdoor`, `flux-markdown`, `dbeaver` and `codeql` to the Brewfile and captured their preferences for backup.
+* *[.aliases]* The dynamically generated aliases for the git repositories found under the `$PROJECTS_BASE_DIR` will now enable more fine-grained control. To find out what all aliases have been setup on your machine, you can run `alias | \grep rug`.
+
+#### Adopting these changes
+
+* Rebase from upstream, resolve conflicts, and then proceed with the following steps:
+
+  ```bash
+  cp "${DOTFILES_DIR}/files/--HOME--/custom.gitignore" "${HOME}/.gitignore"
+  source "${HOME}/.aliases"
+  "${DOTFILES_DIR}/scripts/install-dotfiles.rb"
+  ```
+
+* Quit and restart the Terminal application.
+
 ### 3.0.12
 
 * *[.aliases]* New alias for `mkdir` that will create the directory and its parent directories if they don't exist.

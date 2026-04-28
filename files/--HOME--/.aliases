@@ -39,13 +39,28 @@ if command_exists 'run-all.sh'; then
   alias home="FOLDER='${HOME}' FILTER='.bin|.dotfiles|zsh|mise' MAXDEPTH=5 rug"
   is_directory "${PERSONAL_PROFILES_DIR}" && alias profiles="FOLDER='${PERSONAL_PROFILES_DIR}' MAXDEPTH=5 rug"
   if is_directory "${PROJECTS_BASE_DIR}"; then
-    # Use zsh glob qualifiers to only loop if matches exist and are directories
-    # (N) nullglob: if no match, the pattern expands to nothing
-    # (/): only match directories
-    local project_folders=("${PROJECTS_BASE_DIR}"/*/(N/))
-    if [[ ${#project_folders[@]} -gt 0 ]]; then
-      for folder_path in "${project_folders[@]}"; do
-        alias "${folder_path:t}"="FOLDER='${folder_path}' MAXDEPTH=4 rug" # Use :t to get the tail (basename)
+    local -A _seen_parent_folders
+    local -a parent_folders
+
+    # process substitution keeps 'while' in the current shell (no subshell for the loop body);
+    # :h replaces $(dirname ...) with a zsh parameter expansion (no fork per iteration);
+    # associative array replaces 'sort -u' piped through an external process
+    while IFS= read -r p; do
+      local ancestor="${p:h:h}" # parent of .git = repo root; parent of that = first ancestor to check
+      while [[ "${ancestor}" != "${PROJECTS_BASE_DIR}" && "${ancestor}" != "/" ]]; do
+        if is_zero_string "${_seen_parent_folders[$ancestor]}"; then
+          _seen_parent_folders[$ancestor]=1
+          parent_folders+=("${ancestor}")
+        fi
+        ancestor="${ancestor:h}"
+      done
+    done < <(find "${PROJECTS_BASE_DIR}" -maxdepth 6 -type d -name '.git')
+
+    if [[ ${#parent_folders[@]} -gt 0 ]]; then
+      for folder_path in "${parent_folders[@]}"; do
+        local relative_path="${folder_path#${PROJECTS_BASE_DIR}/}"
+        local hyphenated_txt="${relative_path//\//-}"
+        alias "${hyphenated_txt}"="FOLDER='${folder_path}' MAXDEPTH=4 rug" # alias name is the folder name with the base dir removed and '/' replaced with '-'
       done
       unset folder_path
     fi

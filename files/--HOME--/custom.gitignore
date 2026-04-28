@@ -91,6 +91,7 @@
 /.config/nvim/plugged/
 /.config/raycast/extensions/
 /.config/simple-update-notifier/electron-builder.json
+/.config/sol/images_pasteboard/
 /.config/sol/mmkv.default*
 /.config/stetic/library-cache/
 /.config/xbuild/pkgconfig-cache-2.xml

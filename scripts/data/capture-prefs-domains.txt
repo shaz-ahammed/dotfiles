@@ -353,6 +353,7 @@ com.bresink.system.tinkertool
 com.cloudflare.1dot1dot1dot1.macos
 com.docker.docker
 com.electron.ollama
+com.ethanbills.DockDoor
 com.generalarcade.flycut
 com.github.Electron
 com.github.IngmarStein.Monolingual
@@ -391,6 +392,7 @@ com.usebruno.app
 com.utmapp.UTM
 com.visualstudio.code.oss
 com.vscodium.VSCodiumInsiders
+com.xykong.Markdown.QuickLook
 ContextStoreAgent
 dev.kiro.desktop
 dev.zed.Zed
