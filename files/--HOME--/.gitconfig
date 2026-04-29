@@ -246,10 +246,7 @@
   # useUnicodeRuler = false
 [extensions]
   # objectFormat = sha256         # Note: This can be uncommented to enable the new repository format for SHA256 support
-  # compatObjectFormat = sha1     # Note: This can be uncommented to enable the new repository format for SHA256 support
 [fetch]
-  all = true
-  parallel = 0
   prune = true
   pruneTags = true
   showForcedUpdates = true

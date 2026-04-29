@@ -12,7 +12,7 @@ On your local machine:
 The meta script to setup the macos machine from a vanilla OS can be run using the following command:
 
 ```zsh
-export GH_USERNAME='vraravam' DOTFILES_BRANCH='master' HOMEBREW_BASE_INSTALL='true'; curl --retry 3 --retry-delay 5 -fsSL "https://raw.githubusercontent.com/${GH_USERNAME}/dotfiles/refs/heads/${DOTFILES_BRANCH}/scripts/fresh-install-of-osx.sh" | zsh; unset HOMEBREW_BASE_INSTALL
+export GH_USERNAME='shaz-ahammed' DOTFILES_BRANCH='master' HOMEBREW_BASE_INSTALL='true'; curl --retry 3 --retry-delay 5 -fsSL "https://raw.githubusercontent.com/${GH_USERNAME}/dotfiles/refs/heads/${DOTFILES_BRANCH}/scripts/fresh-install-of-osx.sh" | zsh; unset HOMEBREW_BASE_INSTALL
 ```
 
 This script can be run in an idempotent manner, and will setup [oh-my-zsh](https://ohmyz.sh/), [homebrew](https://brew.sh), the dotfiles (this repo), etc. (There is 1 caveat though: on a fresh machine, this script silently fails after the first basic installation.)
@@ -59,6 +59,8 @@ All these scripts are optimized for fast loading of the shell so that the user c
    * Setup the preferences and keyboard shortcuts as per your choices within Raycast. (I have setup for Clipboard history, Window management and Import/Export of the Raycast settings.)
     *Hint:* If you had exported the configs into a file and had captured it as part of your home git repo, then simply re-importing will be sufficient on the new machine.
    * I switched to using the 'Coffee' extension of Raycast instead of the KeepingYouAwake standalone app. If you want this functionality, you might also want to install that extension within Raycast's preferences.
+2. Open the `VSCodium` application.
+   * Go to the Command Palette (`Cmd+Shift+P`) > Sync: Advanced Options > Sync: Open Settings and setup your Github integration for backing up your VSCode settings. To seed your VSCode/VSCodium for the first time with my settings, you can use '6624ce6f4618e4c9d7682975fea0ef95' for the GH gist id. Remember to leave the text box empty AFTER the initial download, so that the plugin will auto-create a new gist in your GH id for future backups
 
 
 Back to the [readme](README.md#complete-setup)

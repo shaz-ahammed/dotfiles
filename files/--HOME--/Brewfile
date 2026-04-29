@@ -27,6 +27,7 @@ is_arm = ::Hardware::CPU.arm?
 setup_login_items_script = "${HOME}/.config/dotfiles/scripts/setup-login-item.sh"
 
 tap 'romkatv/powerlevel10k'
+tap 'TheBoredTeam/boring-notch' if OS::Mac::version >= 14
 
 # Moving these casks to tbe beginning since they are required in the beginning (for manual login) for a vanilla OS installation
 cask 'font-meslo-lg-nerd-font'
@@ -39,9 +40,7 @@ brew 'curl'
 brew 'git'
 brew 'grep'
 brew 'less'
-brew 'openssl'
 brew 'rsync'
-brew 'sqlite3'
 brew 'vim'
 brew 'wget'
 brew 'zsh'
@@ -70,38 +69,23 @@ tap 'xykong/tap'
 brew 'bat'
 brew 'btop'
 brew 'git-gui'
-brew 'jq'
-brew 'mole'
-brew 'moreutils'
-brew 'ncdu'
-brew 'opencode'
-brew 'pandoc'
+brew 'jhipster' # Note: downloads node latest version as depenency
 brew 'prettyping'
-brew 'ripgrep'
-brew 'syncthing'
-brew 'tlrc'
+brew 'sonar-scanner'
 
-cask 'aldente', postinstall: "\"#{setup_login_items_script}\" -a 'AlDente'" if ::OS::Mac::version < 26
-cask 'clocker', postinstall: "\"#{setup_login_items_script}\" -a 'Clocker'"
-cask 'codeql'
-cask 'dbeaver-community'
-cask 'dockdoor', postinstall: "\"#{setup_login_items_script}\" -a 'Dockdoor'"
-cask 'drawio'
-cask 'firefox@nightly' #, greedy: true
-cask 'google-chrome@beta'
-cask 'thaw', postinstall: "\"#{setup_login_items_script}\" -a 'Thaw'" if ::OS::Mac::version >= 14
-cask 'keepassxc@beta'
-cask 'keyclu' if is_arm
-cask 'onlyoffice'
-cask 'protonvpn'
-cask 'rancher' # if ::OS::Mac::version < 26
-cask 'sol', postinstall: "\"#{setup_login_items_script}\" -a 'Sol'"
-cask 'shortcat', postinstall: "\"#{setup_login_items_script}\" -a 'Shortcat'"
-cask 'stats', postinstall: "\"#{setup_login_items_script}\" -a 'Stats'"
-# cask 'visual-studio-code'
-cask 'flux-markdown', postinstall: 'qlmanage -r'
-cask 'zed@preview'
-cask 'zen@twilight'
+# cask 'aldente', postinstall: "\"${HOME}/.dotfiles/scripts/setup-login-item.sh\" 'AlDente'"
+cask 'android-studio'
+cask 'appcleaner'
+cask 'firefox'
+cask 'flutter' # Note: downloads dart latest version as depenency
+cask 'google-chrome'
+cask 'intellij-idea-ce'
+# cask 'jordanbaird-ice', postinstall: "\"${HOME}/.dotfiles/scripts/setup-login-item.sh\" 'Ice'"
+cask 'rancher'
+cask 'raycast', postinstall: "\"${HOME}/.dotfiles/scripts/setup-login-item.sh\" 'Raycast'"
+cask 'stats', postinstall: "\"${HOME}/.dotfiles/scripts/setup-login-item.sh\" 'Stats'"
+cask 'vscodium'
+cask 'whatsapp'
 cask 'zoom'
 
 # brew 'mas'
@@ -187,6 +171,13 @@ cask 'zoom'
 # brew 'speedtest-cli'
 # brew 'watch'
 # brew 'wifi-password'
+# ---------------------------------------------------------------------------------------------------------
+# mas is to download apps from app store [regester/login to app store for mas commands to work]
+# ---------------------------------------------------------------------------------------------------------
+# brew 'mas'
+
+# https://docs.github.com/en/get-started/getting-started-with-git/caching-your-github-credentials-in-git
+# cask 'git-credential-manager'
 
 # ---- casks
 # tap 'TheBoredTeam/boring-notch'

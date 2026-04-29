@@ -149,7 +149,6 @@
 /.mix/rebar
 /.mix/rebar3
 /.mono/registry/
-/.mozbuild/
 /.nchsoftware
 /.nix-profile
 /.npm
@@ -205,6 +204,7 @@
 /.yarn/berry/telemetry.json
 /.yarnrc
 /.yjp
+/.zcompdump*
 /.zoomus
 /.zsh_history
 /.zsh_sessions/
