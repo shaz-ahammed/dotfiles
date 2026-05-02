@@ -386,6 +386,7 @@ com.pdfeditor.pdfeditormac
 com.qtproject
 com.raycast.macos
 com.sproutcube.Shortcat
+com.stonerl.Thaw
 com.titanium.OnyX
 com.titanium.OnyX.update
 com.usebruno.app
