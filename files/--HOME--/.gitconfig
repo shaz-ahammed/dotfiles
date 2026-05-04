@@ -117,7 +117,7 @@
   br = branch --show-current
 
   # rebase from corresponding upstream branch if a remote named 'upstream' is present, silently quit if a remote is not present
-  upreb = !git branch -u origin/`git br` && git fo && ( git remote | grep upstream 2>&1 &> /dev/null ) && git rebase upstream/`git br` --no-verify && git fetch upstream --tags && git push --progress --no-verify && git push --progress --tags --no-verify && git siu && git dlb
+  upreb = !git branch -u origin/`git br` && git fo && ( git remote | grep upstream &>/dev/null ) && git rebase upstream/`git br` --no-verify && git fetch upstream --tags && git push --progress --no-verify && git push --progress --tags --no-verify && git siu && git dlb
 
   # prune local copy-of-remote to remove deleted branches
   rpo = remote prune origin
@@ -225,6 +225,7 @@
   longPaths = true
   pager = diff-so-fancy | less --tabs=2 -RFX
   # repositoryFormatVersion = 1   # Note: This can be uncommented to enable the new repository format for SHA256 support
+  sshCommand="ssh -o ConnectTimeout=20"
   symlinks = false
   untrackedCache = true
   whitespace = fix
@@ -278,6 +279,8 @@
 [help]
   autoCorrect = 1
 [http]
+  lowSpeedLimit = 1000
+  lowSpeedTime = 30
   postBuffer = 786432000
 [init]
   defaultBranch = master
@@ -340,4 +343,4 @@
 [user]
   useConfigOnly = true
 [oh-my-zsh]
-	hide-status = 1
+  hide-status = 1

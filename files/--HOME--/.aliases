@@ -13,7 +13,7 @@
 [[ -n "${DEBUG+1}" ]] && echo "loading ${0}"
 
 # DUPLICATE! Copied over since we get an error if the .shellrc was not loaded
-type is_shellrc_sourced 2>&1 &> /dev/null || source "${HOME}/.shellrc"
+type is_shellrc_sourced &>/dev/null || source "${HOME}/.shellrc"
 
 # add flags to existing aliases
 alias less="${aliases[less]:-less} -RF"
@@ -122,7 +122,7 @@ install_mise_versions() {
 
 # runs 'direnv allow' on all relevant folders
 _direnv_process() {
-  (cd "${1}" 2>&1 &> /dev/null && direnv allow .) && success "Successfully allowed direnv for '$(yellow "${1}")'" || warn "Failed to allow direnv for '${1}'"
+  (cd "${1}" &>/dev/null && direnv allow .) && success "Successfully allowed direnv for '$(yellow "${1}")'" || warn "Failed to allow direnv for '${1}'"
 }
 
 allow_all_direnv_configs() {
@@ -310,7 +310,7 @@ recron() {
   info "$(yellow 'Old cron listing')"
   crontab -l || true
 
-  crontab -r 2>&1 &> /dev/null || true
+  crontab -r &>/dev/null || true
 
   local cron_file="${PERSONAL_CONFIGS_DIR}/crontab.txt"
   _create_crontab "${cron_file}"
