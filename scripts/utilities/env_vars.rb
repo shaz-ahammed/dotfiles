@@ -179,7 +179,7 @@ module EnvVars
 
   # GitHub username for dotfiles repository.
   # Mirrors: export GH_USERNAME (set in .shellrc or manually)
-  GH_USERNAME = ENV.fetch('GH_USERNAME', 'vraravam').freeze
+  GH_USERNAME = ENV.fetch('GH_USERNAME', 'shaz-ahammed').freeze
 
   # Upstream GitHub username (for forks).
   # Mirrors: export UPSTREAM_GH_USERNAME (set in .shellrc or manually)
@@ -192,7 +192,7 @@ module EnvVars
   # Keybase username.
   # Mirrors: export KEYBASE_USERNAME (set in .shellrc or manually)
   # Returns nil when not set or empty (if user does not want Keybase functionality), otherwise returns stripped string.
-  KEYBASE_USERNAME = _normalize_optional_string(ENV.fetch('KEYBASE_USERNAME', 'avijayr'))
+  KEYBASE_USERNAME = _normalize_optional_string(ENV.fetch('KEYBASE_USERNAME', 'shazahammed'))
 
   # Keybase repository names for encrypted backups.
   # Mirrors: export KEYBASE_*_REPO_NAME (set in .shellrc or manually)
